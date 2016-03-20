@@ -5,6 +5,7 @@ angular
 		'ngMaterial',
 		'ngMdIcons',
 		'ui.router',
+		'yaru22.md',
 		'RegistryApp.Breadcrumb'
 	])
 	.config([

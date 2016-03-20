@@ -10,7 +10,7 @@ div(ng-controller='RepositoryCtrl as repository')
 			md-content.md-padding(layout='column')
 				div(ng-if='repository.item')
 					p.text-gray(ng-if='!repository.item.description && !repository.editMode') No description
-					p(ng-bind='repository.item.description' ng-if='!repository.editMode')
+					md(ng-model='repository.item.description' ng-if='!repository.editMode')
 					form(name='repositoryForm' ng-if='repository.editMode')
 						md-input-container.md-block
 							label Description

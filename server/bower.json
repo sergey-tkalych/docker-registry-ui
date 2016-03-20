@@ -18,6 +18,10 @@
   "dependencies": {
     "angular-ui-router": "^0.2.18",
     "angular-material-icons": "^0.6.0",
-    "svg-morpheus": "^0.1.8"
+    "svg-morpheus": "^0.1.8",
+    "angular-md": "^1.0.0"
+  },
+  "resolutions": {
+    "angular": "1.5.1"
   }
 }
