@@ -1,0 +1,23 @@
+{
+  "name": "docker-registry-ui-client",
+  "authors": [
+    "Sergey Tkalych <set@qapint.com>"
+  ],
+  "description": "Docker registry UI client",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "^0.2.18",
+    "angular-material-icons": "^0.6.0",
+    "svg-morpheus": "^0.1.8"
+  }
+}

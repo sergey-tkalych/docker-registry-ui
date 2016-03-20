@@ -1,0 +1,14 @@
+{
+	"environment": {
+		"port": 3000,
+		"db": {
+			"database": "docker-registry-ui",
+			"host": "127.0.0.1"
+		}
+	},
+	"registry": {
+		"url": "http://docker-registry.com",
+		"basic_auth_username": "username",
+		"basic_auth_password": "password"
+	}
+}

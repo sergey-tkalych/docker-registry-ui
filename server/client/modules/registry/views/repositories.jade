@@ -1,0 +1,10 @@
+div(ng-controller='RepositoriesCtrl as repositories')
+	div(layout='row' layout-fill layout-wrap ng-if='repositories.list')
+		md-card(flex='30' flex-sm='45' ng-repeat='repository in repositories.list')
+			md-card-title
+				md-card-title-text
+					span.md-headline(ng-bind='::repository.name')
+			md-card-actions(layout='row' layout-align='end center')
+				md-button(ui-sref='repository({name: repository.name})') Show
+	div(layout='row' layout-fill layout-align='center center' ng-if='!repositories.list')
+		md-progress-circular(md-mode='indeterminate' md-diameter='100')

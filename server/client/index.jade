@@ -1,0 +1,34 @@
+doctype html
+html(lang='en' ng-app='RegistryApp')
+	head
+		meta(charset='UTF-8')
+		title Docker Registry UI
+
+		link(rel='stylesheet' href='bower_components/angular-material/angular-material.min.css')
+
+		link(rel='stylesheet' href='modules/registry/css/registry.css')
+	body(layout='row')
+		div(layout='column' flex role='main')
+			md-toolbar.app-content-toolbar
+				.md-toolbar-tools
+					div.fill-height(layout='row' flex)
+						h2.md-toolbar-item.md-breadcrumb.md-headline(ng-controller='BreadcrumbCtrl as breadcrumb')
+							a(ng-repeat='breadcrumbItem in breadcrumb.list' ng-bind='breadcrumbItem.text' ng-class='{link: breadcrumbItem.route}' ng-click='breadcrumb.goTo(breadcrumbItem)')
+			md-content.app-content.md-padding(layout='column' flex md-scroll-y ui-view)
+
+		script(src='bower_components/angular/angular.min.js')
+		script(src='bower_components/angular-animate/angular-animate.min.js')
+		script(src='bower_components/angular-aria/angular-aria.min.js')
+		script(src='bower_components/angular-material/angular-material.min.js')
+		script(src='bower_components/angular-material-icons/angular-material-icons.min.js')
+		script(src='bower_components/angular-ui-router/release/angular-ui-router.min.js')
+		script(src='bower_components/svg-morpheus/compile/minified/svg-morpheus.js')
+
+		script(src='modules/breadcrumb/js/breadcrumb.js')
+		script(src='modules/breadcrumb/js/breadcrumb.service.js')
+		script(src='modules/breadcrumb/js/breadcrumb.ctrl.js')
+
+		script(src='modules/registry/js/registry.js')
+		script(src='modules/registry/js/registry.service.js')
+		script(src='modules/registry/js/repositories.ctrl.js')
+		script(src='modules/registry/js/repository.ctrl.js')

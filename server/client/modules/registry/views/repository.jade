@@ -1,0 +1,29 @@
+div(ng-controller='RepositoryCtrl as repository')
+	div(layout='row')
+		.md-padding(layout='column' flex='70')
+			md-toolbar(layout='row')
+				.md-toolbar-tools
+					span Information
+					span(flex)
+					md-button.md-icon-button(ng-click='repository.toggleEditMode()' aria-label='Toggle edit mode')
+						ng-md-icon(icon='{{repository.editIcon}}' style='fill: #fff')
+			md-content.md-padding(layout='column')
+				div(ng-if='repository.item')
+					p.text-gray(ng-if='!repository.item.description && !repository.editMode') No description
+					p(ng-bind='repository.item.description' ng-if='!repository.editMode')
+					form(name='repositoryForm' ng-if='repository.editMode')
+						md-input-container.md-block
+							label Description
+							textarea(ng-model='repository.item.description' rows='10')
+				div(layout='row' layout-fill layout-align='center center' ng-if='!repository.item')
+					md-progress-circular(md-mode='indeterminate' md-diameter='100')
+		.md-padding(layout='column' flex='30')
+			md-toolbar(layout='row')
+				.md-toolbar-tools
+					span Tags
+			md-content.md-padding(layout='column')
+				div(ng-if='repository.tags')
+					.repository-tags
+						.tag(ng-repeat='tag in repository.tags' ng-bind='tag')
+				div(layout='row' layout-fill layout-align='center center' ng-if='!repository.tags')
+					md-progress-circular(md-mode='indeterminate' md-diameter='100')
