@@ -5,10 +5,12 @@ body,
 .text-gray {
   color: #808080;
 }
+.app-shadow {
+  box-shadow: 0 0 1px 1px rgba(0,0,0,0.14), 0 0 2px 2px rgba(0,0,0,0.098), 0 0 5px 1px rgba(0,0,0,0.084);
+}
 .app-content-toolbar {
   background: #f6f6f6 !important;
   color: #000 !important;
-  box-shadow: 0 0 1px 1px rgba(0,0,0,0.14), 0 0 2px 2px rgba(0,0,0,0.098), 0 0 5px 1px rgba(0,0,0,0.084);
 }
 .app-content-toolbar .md-breadcrumb a {
   margin-right: 10px;
@@ -22,7 +24,7 @@ body,
 .repository-tags .tag {
   background: #e0e0e0;
   color: #424242;
-  cursor: default;
+  cursor: pointer;
   border-radius: 16px;
   display: block;
   height: 32px;
@@ -33,4 +35,33 @@ body,
   box-sizing: border-box;
   max-width: 100%;
   position: relative;
+  outline: none;
+}
+.repository-tags .tag.selected {
+  background: #ff5722;
+  color: #fff;
+}
+.repository-subheader .md-subheader-inner {
+  padding: 20px 0;
+  height: 100%;
+}
+.repository-subheader .md-subheader-content {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.repository-subheader p {
+  margin: 0;
+  line-height: 24px;
+  font-size: 24px;
+  text-align: center;
+  transition: 0.5s;
+}
+.md-subheader-wrapper[sticky-state=active] .repository-subheader p {
+  line-height: 18px;
+  font-size: 18px;
+}
+.md-subheader-wrapper:not(.md-sticky-no-effect).md-sticky-clone {
+  z-index: 3;
 }

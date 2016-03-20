@@ -25,6 +25,7 @@ angular
 				.getRepository($stateParams.name)
 				.success(function(repository){
 					that.item = repository;
+					that.registryHost = getPullHost(repository.registry_url);
 				})
 				.error(function(){
 
@@ -62,5 +63,15 @@ angular
 						});
 				}
 			};
+
+			this.selectTag = function(tag){
+				that.selectedTag = ':' + tag;
+			};
+
+			function getPullHost(registryUrl){
+				var parser = document.createElement('a');
+				parser.href = registryUrl;
+				return parser.host;
+			}
 		}
 	]);
