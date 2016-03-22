@@ -1,0 +1,12 @@
+registry-ui:
+  build: .
+  ports:
+    - "3000:3000"
+  links:
+    - db:mongo
+  environment:
+    - REGISTRY_URL=url
+    - REGISTRY_BASIC_AUTH_USERNAME=username
+    - REGISTRY_BASIC_AUTH_PASSWORD=password
+db:
+  image: mongo:3.2.4
