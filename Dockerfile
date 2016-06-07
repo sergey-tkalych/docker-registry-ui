@@ -1,4 +1,4 @@
-FROM node:5.9.0
+FROM node:6.2.1
 
 MAINTAINER Sergey Tkalych <sergey.tkalych@gmail.com>
 
