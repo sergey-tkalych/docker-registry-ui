@@ -5,9 +5,10 @@ angular
 	.controller('RepositoryCtrl', [
 		'$stateParams',
 		'$mdToast',
+		'$mdDialog',
 		'RegistryService',
 		'BreadcrumbService',
-		function($stateParams, $mdToast, RegistryService, BreadcrumbService){
+		function($stateParams, $mdToast, $mdDialog, RegistryService, BreadcrumbService){
 			var that = this;
 
 			BreadcrumbService.setBreadcrumb([
@@ -65,7 +66,29 @@ angular
 			};
 
 			this.selectTag = function(tag){
-				that.selectedTag = ':' + tag;
+				that.selectedTagName = ':' + tag.name;
+			};
+
+			this.delete = function(tag, $event){
+				var confirm = $mdDialog.confirm()
+					.title('Would you like to delete image tag?')
+					.targetEvent($event)
+					.ok('Delete')
+					.cancel('Cancel');
+
+				$mdDialog
+					.show(confirm)
+					.then(function(){
+						tag.deleted = true;
+						RegistryService
+							.deleteTag(that.item, tag)
+							.success(function(){
+								tag.purged = true;
+							})
+							.error(function(){
+								tag.deleted = false;
+							});
+					});
 			};
 
 			function getPullHost(registryUrl){

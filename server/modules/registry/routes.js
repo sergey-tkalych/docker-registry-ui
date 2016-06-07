@@ -8,5 +8,6 @@ router.get('/api/v1/repositories', RegistryCtrl.getRegistry, RepositoriesCtrl.ge
 router.get('/api/v1/repository/:name', RegistryCtrl.getRegistry, RepositoryCtrl.getRepository);
 router.put('/api/v1/repository/:name', RegistryCtrl.getRegistry, RepositoryCtrl.saveRepository);
 router.get('/api/v1/repository/:name/tags', RegistryCtrl.getRegistry, RepositoryCtrl.getRepositoryTags);
+router.delete('/api/v1/repository/:name/tags/:tag', RegistryCtrl.getRegistry, RepositoryCtrl.deleteRepositoryTag);
 
 module.exports = router;

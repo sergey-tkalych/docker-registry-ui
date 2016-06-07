@@ -1,6 +1,6 @@
 div(ng-controller='RepositoryCtrl as repository')
 	md-subheader.repository-subheader.md-primary
-		p docker pull {{repository.registryHost}}/{{repository.item.name}}{{repository.selectedTag}}
+		p docker pull {{repository.registryHost}}/{{repository.item.name}}{{repository.selectedTagName}}
 	.md-padding(layout='row')
 		.md-padding(layout='column' flex='70')
 			md-toolbar(layout='row')
@@ -26,6 +26,9 @@ div(ng-controller='RepositoryCtrl as repository')
 			md-content.md-padding(layout='column')
 				div(ng-if='repository.tags')
 					.repository-tags
-						.tag(ng-repeat='tag in repository.tags' ng-bind='tag' ng-click='repository.selectTag(tag)' ng-class='{selected : repository.selectedTag === ":" + tag}')
+						.tag(ng-repeat='tag in repository.tags' ng-if='!tag.purged' ng-click='repository.selectTag(tag)' ng-class='{selected: repository.selectedTagName === ":" + tag.name, deleted: tag.deleted}')
+							span(ng-bind='tag.name')
+							md-button.md-icon-button(ng-click='repository.delete(tag, $event)' aria-label='Delete tag' md-ink-ripple='false')
+								ng-md-icon(icon='close' size='20')
 				div(layout='row' layout-fill layout-align='center center' ng-if='!repository.tags')
 					md-progress-circular(md-mode='indeterminate' md-diameter='100')

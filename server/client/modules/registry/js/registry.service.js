@@ -20,5 +20,9 @@ angular
 			this.saveRepository = function(repository){
 				return $http.put('/api/v1/repository/' + repository.name, {repository: repository});
 			};
+
+			this.deleteTag = function(repository, tag){
+				return $http.delete('/api/v1/repository/' + repository.name + '/tags/' + tag.name);
+			};
 		}
 	]);

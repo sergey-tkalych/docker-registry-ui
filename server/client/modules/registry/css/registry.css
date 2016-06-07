@@ -30,16 +30,38 @@ body,
   height: 32px;
   line-height: 32px;
   margin: 8px 8px 0 0;
-  padding: 0 12px;
+  padding: 0 32px 0 12px;
   float: left;
   box-sizing: border-box;
   max-width: 100%;
   position: relative;
   outline: none;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.repository-tags .tag button {
+  margin: 0;
+  padding: 0;
+  height: 32px;
+  width: 32px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 16px;
 }
 .repository-tags .tag.selected {
   background: #ff5722;
   color: #fff;
+}
+.repository-tags .tag.deleted {
+  padding-right: 12px;
+  background: #f7f3f3;
+  color: #d0cccc;
+  pointer-events: none;
+}
+.repository-tags .tag.deleted button {
+  display: none;
 }
 .repository-subheader .md-subheader-inner {
   padding: 20px 0;

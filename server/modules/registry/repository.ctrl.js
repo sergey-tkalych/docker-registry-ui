@@ -25,6 +25,15 @@ exports.getRepositoryTags = function(req, res, next){
 		.catch(next);
 };
 
+exports.deleteRepositoryTag = function(req, res, next){
+	req.registry
+		.deleteRepositoryTag(req.params.name, req.params.tag)
+		.then(function(){
+			res.json({message: 'deleted'});
+		})
+		.catch(next);
+};
+
 exports.getRepositoryDetails = function(req, res, next){
 	res.send('getRepositoryDetails');
 };

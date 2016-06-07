@@ -1,0 +1,2 @@
+h2.md-toolbar-item.md-breadcrumb.md-headline(ng-controller='BreadcrumbCtrl as breadcrumb')
+	a(ng-repeat='breadcrumbItem in breadcrumb.list' ng-bind='breadcrumbItem.text' ng-class='{link: breadcrumbItem.route}' ng-click='breadcrumb.goTo(breadcrumbItem)')
